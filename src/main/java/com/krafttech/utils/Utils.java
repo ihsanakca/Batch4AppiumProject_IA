@@ -13,7 +13,7 @@ import static com.krafttech.utils.Driver.*;
 
 public class Utils {
 
-    static AppiumDriver<MobileElement> driver;
+//    static AppiumDriver<MobileElement> driver;
 
     public static AppiumDriver<MobileElement> openApp(Device device, App app) {
         runAppiumService();
@@ -21,16 +21,16 @@ public class Utils {
     }
 
     public static void clickWithText(String text) {
-        driver = Driver.getDriver();
-        driver.findElement(By.xpath("//*[@text='" + text + "']")).click();
+//        driver = Driver.getDriver();
+        Driver.getDriver().findElement(By.xpath("//*[@text='" + text + "']")).click();
     }
 
     public static void swipeV(double startPoint, double endPoint) {
-        driver = Driver.getDriver();
-        int width = driver.manage().window().getSize().width;
-        int height = driver.manage().window().getSize().height;
+      //  driver = Driver.getDriver();
+        int width = Driver.getDriver().manage().window().getSize().width;
+        int height = Driver.getDriver().manage().window().getSize().height;
 
-        new TouchAction<>(driver)
+        new TouchAction<>(Driver.getDriver())
                 .press(PointOption.point(width / 2, (int) (height * startPoint)))
                 .moveTo(PointOption.point(width / 2, (int) (height * endPoint)))
                 .release()
@@ -38,26 +38,33 @@ public class Utils {
     }
 
     public static void swipeUntil(By locator, double startPoint, double endPoint) {
-        driver = Driver.getDriver();
-        while (driver.findElements(locator).size() <= 0) {
+     //   driver = Driver.getDriver();
+        while (Driver.getDriver().findElements(locator).size() <= 0) {
             swipeV(startPoint, endPoint);
         }
     }
+    public static void swipeAndClick(By locator, double startPoint, double endPoint) {
+    //    driver = Driver.getDriver();
+        while (Driver.getDriver().findElements(locator).size() <= 0) {
+            swipeV(startPoint, endPoint);
+        }
+        Driver.getDriver().findElement(locator).click();
+    }
 
     public static void clickToCoordinate(int x, int y) {
-        driver = Driver.getDriver();
-        new TouchAction<>(driver)
+    //    driver = Driver.getDriver();
+        new TouchAction<>(Driver.getDriver())
                 .press(PointOption.point(x, y)).release().perform();
 
     }
 
     public static void clickNumbers(Integer num) {
-        driver = Driver.getDriver();
-        driver.findElement(By.xpath("//*[@content-desc='" + num + "']")).click();
+      //  driver = Driver.getDriver();
+        Driver.getDriver().findElement(By.xpath("//*[@content-desc='" + num + "']")).click();
     }
 
     public static void operators(String operator) {
-        driver = Driver.getDriver();
-        driver.findElement(By.xpath("//*[@content-desc='" + operator + "']")).click();
+      //  driver = Driver.getDriver();
+        Driver.getDriver().findElement(By.xpath("//*[@content-desc='" + operator + "']")).click();
     }
 }

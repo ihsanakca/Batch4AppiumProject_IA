@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 public class Test_07 extends TestBase {
 
     By lTamam = By.id("android:id/button1");
+    By lviews = By.xpath("//*[@text='Views']");
 
     By lwebView=By.xpath("//*[@text='WebView']");
 
@@ -49,6 +50,23 @@ public class Test_07 extends TestBase {
 
         Utils.clickWithText("WebView");
 
+
+    }
+
+    @Test
+    public void test3() {
+        driver.findElement(By.xpath("//*[@text='DEVAM']")).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lTamam));
+
+        driver.findElement(By.id("android:id/button1")).click();
+        driver.findElement(By.xpath("//*[@text='TAMAM']")).click();
+        driver.findElement(By.xpath("//*[@text='API Demos']")).click();
+        driver.findElement(By.xpath("//*[@text='Accessibility']")).click();
+        driver.navigate().back();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lviews)).click();
+
+        Utils.swipeAndClick(lwebView,.7,.2);
 
     }
 
