@@ -24,7 +24,7 @@ public class Driver {
         service.stop();
     }
 
-    public static AppiumDriver<MobileElement> getDriver(Device device,App app){
+    public static AppiumDriver<MobileElement> getDriver(Device device, App app){
         driver = new AndroidDriver<>(service.getUrl(), setCapabilities(device,app));
         return driver;
     }

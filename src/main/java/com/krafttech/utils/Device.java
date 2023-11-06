@@ -3,7 +3,7 @@ package com.krafttech.utils;
 public enum Device {
 
     Redmi_8("3c7eb8","12","XiaomiNote8","Android"),
-    Pixel_2("emulator-5554","11","Pixel_2","Android");
+    Pixel_3("emulator-5554","11","Pixel_3","Android");
 
     public String udid;
     public String version;

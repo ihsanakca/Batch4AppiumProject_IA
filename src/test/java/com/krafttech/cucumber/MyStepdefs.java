@@ -2,8 +2,8 @@ package com.krafttech.cucumber;
 
 
 
+
 import com.krafttech.utils.Driver;
-import com.krafttech.utils.Utils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.cucumber.java.en.Given;
@@ -12,6 +12,8 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+
+import com.krafttech.utils.MobileUtilities;
 import java.util.List;
 
 public class MyStepdefs {
@@ -29,9 +31,9 @@ public class MyStepdefs {
         int max=1;
 
         for (Integer number : numbers) {
-            Utils.clickNumbers(number);
+            MobileUtilities.clickNumbers(number);
             if(max!=size){
-                Utils.operators("artı");
+                MobileUtilities.operators("plus");
             }
             max++;
         }
@@ -41,7 +43,7 @@ public class MyStepdefs {
 //        Utils.operators("artı");
 //        Utils.clickNumber(numbers.get(2));
 
-       Utils.operators("eşittir");
+        MobileUtilities.operators("equals");
     }
 
     @Then("The result should be {int}")

@@ -1,10 +1,12 @@
 package com.krafttech.mobileWeb;
 
-import com.krafttech.utils.WebDriverMobile;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+
+import com.krafttech.utils.WebDriverMobile;
 
 public class MobileChromeTest {
     WebDriver driver= WebDriverMobile.getDriver();

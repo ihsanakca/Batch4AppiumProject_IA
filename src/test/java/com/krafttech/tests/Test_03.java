@@ -1,5 +1,6 @@
 package com.krafttech.tests;
 
+
 import com.krafttech.utils.App;
 import com.krafttech.utils.Device;
 import io.appium.java_client.AppiumDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
+
 import java.net.MalformedURLException;
 
 public class Test_03 {
@@ -18,7 +20,7 @@ public class Test_03 {
     AppiumDriver<MobileElement> driver;
     AppiumDriverLocalService service;
 
-    Device device = Device.Redmi_8;
+    Device device = Device.Pixel_3;
     App app = App.ApiDemos;
 
     @Test
@@ -51,11 +53,11 @@ public class Test_03 {
         driver = new AndroidDriver<>(service.getUrl(), capabilities);
 
 //      driver.findElement(By.xpath("//*[@text='DEVAM']")).click();
-        clickWithText("DEVAM");
+        clickWithText("Continue");
 //      driver.findElement(By.xpath("//*[@text='Tamam']")).click();
         Thread.sleep(3000);
-        clickWithText("Tamam");
-        clickWithText("TAMAM");
+        clickWithText("OK");
+        clickWithText("OK");
         clickWithText("API Demos");
         clickWithText("Accessibility");
 

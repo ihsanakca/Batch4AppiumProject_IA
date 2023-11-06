@@ -3,12 +3,13 @@ package com.krafttech.cucumber;
 
 import com.krafttech.utils.App;
 import com.krafttech.utils.Device;
-import com.krafttech.utils.Utils;
+import com.krafttech.utils.MobileUtilities;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+
 
 import java.util.Arrays;
 
@@ -27,11 +28,11 @@ public class Runner extends AbstractTestNGCucumberTests {
     public void beforeTest(@Optional("a") String device) {
 
         if (Arrays.toString(Device.values()).contains(device)) {
-            Utils.openApp(Device.valueOf(device), App.Calculator);
+            MobileUtilities.openApp(Device.valueOf(device), App.Calculator);
             System.out.println("device = " + device);
 
         } else {
-            Utils.openApp(Device.Redmi_8, App.Calculator);
+            MobileUtilities.openApp(Device.Pixel_3, App.Calculator);
         }
     }
 }

@@ -31,9 +31,12 @@ public class Test_02 {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("appium:udid", "3c7eb8");
-        capabilities.setCapability("appium:version", "12");
-        capabilities.setCapability("appium:deviceName", "XiaomiNote8");
+      //  capabilities.setCapability("appium:udid", "3c7eb8");
+        capabilities.setCapability("appium:udid", "emulator-5554");
+   //     capabilities.setCapability("appium:version", "12");
+        capabilities.setCapability("appium:version", "11");
+     //   capabilities.setCapability("appium:deviceName", "XiaomiNote8");
+        capabilities.setCapability("appium:deviceName", "Pixel_2");
         capabilities.setCapability("platformName", "Android");
 
         // com.touchboarder.android.api.demos/com.touchboarder.androidapidemos.MainActivity
@@ -47,11 +50,11 @@ public class Test_02 {
         driver = new AndroidDriver<>(service.getUrl(), capabilities);
 
 //      driver.findElement(By.xpath("//*[@text='DEVAM']")).click();
-        clickWithText("DEVAM");
+        clickWithText("Continue");
 //      driver.findElement(By.xpath("//*[@text='Tamam']")).click();
         Thread.sleep(3000);
-        clickWithText("Tamam");
-        clickWithText("TAMAM");
+        clickWithText("OK");
+        clickWithText("OK");
         clickWithText("API Demos");
         clickWithText("Accessibility");
 
