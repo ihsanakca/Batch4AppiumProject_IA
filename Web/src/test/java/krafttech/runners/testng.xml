@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+    <test verbose="2" preserve-order="true" name="Test-1">
+        <parameter name="environment" value="mobile"/>
+        <classes>
+            <class name="krafttech.runners.Runner"/>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Test-2">
+        <parameter name="environment" value="pc"/>
+        <classes>
+            <class name="krafttech.runners.Runner"/>
+        </classes>
+    </test>
+</suite>
