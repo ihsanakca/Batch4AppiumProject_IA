@@ -32,10 +32,16 @@ public class Driver {
 
     private static DesiredCapabilities setCapabilities(Device device,App app){
         DesiredCapabilities capabilities=new DesiredCapabilities();
+
+        String apk = "src/main/resources/" + app.appZipFile;
+
         capabilities.setCapability("appium:udid", device.udid);
         capabilities.setCapability("appium:version", device.version);
         capabilities.setCapability("appium:deviceName", device.deviceName);
         capabilities.setCapability("platformName", device.platformName);
+        if (app.appZipFile.length() != 0) {
+            capabilities.setCapability("appium:app", apk);
+        }
 
         capabilities.setCapability("appium:appPackage", app.appPackage);
         capabilities.setCapability("appium:appActivity", app.appActivity);

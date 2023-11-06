@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
@@ -30,9 +31,9 @@ public class Test_01 {
     public void test1() throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("appium:udid", "3c7eb8");
-        capabilities.setCapability("appium:version", "12");
-        capabilities.setCapability("appium:deviceName", "XiaomiNote8");
+        capabilities.setCapability("appium:udid", "emulator-5554");
+       // capabilities.setCapability("appium:version", "12");
+      //  capabilities.setCapability("appium:deviceName", "XiaomiNote8");
         capabilities.setCapability("platformName", "Android");
 
         // com.touchboarder.android.api.demos/com.touchboarder.androidapidemos.MainActivity
@@ -46,17 +47,21 @@ public class Test_01 {
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
 //      driver.findElement(By.xpath("//*[@text='DEVAM']")).click();
-        clickWithText("DEVAM");
+        clickWithText("Continue");
 //      driver.findElement(By.xpath("//*[@text='Tamam']")).click();
         Thread.sleep(3000);
-        clickWithText("Tamam");
-        clickWithText("TAMAM");
+        clickWithText("OK");
+        clickWithText("OK");
         clickWithText("API Demos");
         clickWithText("Accessibility");
 
         Thread.sleep(2000);
+        driver.rotate(ScreenOrientation.LANDSCAPE);
+        Thread.sleep(2000);
+        //driver.rotate(new DeviceRotation(0,0,90));
+        driver.rotate(ScreenOrientation.PORTRAIT);
+        Thread.sleep(2000);
         driver.closeApp();
-
     }
 
     void clickWithText(String text) {

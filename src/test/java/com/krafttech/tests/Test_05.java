@@ -24,7 +24,7 @@ public class Test_05 {
     @Test
     public void test1() {
 
-        driver = Utils.openApp(Device.Redmi_8, App.ApiDemos);
+        driver = Utils.openApp(Device.Pixel_2, App.ApiDemos);
 
         wait = new WebDriverWait(driver, 10);
 
@@ -44,6 +44,24 @@ public class Test_05 {
     void clickWithText(String text) {
         driver.findElement(By.xpath("//*[@text='" + text + "']")).click();
     }
+    @Test
+    public void test2() {
 
+        driver = Utils.openApp(Device.Pixel_2, App.ApiDemos);
+
+        wait = new WebDriverWait(driver, 10);
+
+        clickWithText("Continue");
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lTamam));
+        clickWithText("OK");
+        clickWithText("OK");
+        clickWithText("API Demos");
+        clickWithText("Accessibility");
+
+        driver.closeApp();
+        Driver.stopAppiumService();
+
+    }
 
 }
