@@ -18,7 +18,7 @@ public class Test_05 {
 
     AppiumDriver<MobileElement> driver;
     WebDriverWait wait;
-    By lTamam = By.id("android:id/button1");
+    By lOkFirst = By.id("android:id/button1");
 
     @Test
     public void test1() {
@@ -29,7 +29,7 @@ public class Test_05 {
 
         clickWithText("Continue");
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(lTamam));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lOkFirst));
         clickWithText("OK");
         clickWithText("OK");
         clickWithText("API Demos");
@@ -46,15 +46,15 @@ public class Test_05 {
     @Test
     public void test2() {
 
-        driver = openApp(Device.Pixel_3, App.ApiDemos);
+        driver = openApp(Device.Redmi_8, App.ApiDemos);
 
         wait = new WebDriverWait(driver, 10);
 
-        clickWithText("Continue");
+        clickWithText("DEVAM");
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(lTamam));
-        clickWithText("OK");
-        clickWithText("OK");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lOkFirst)).click();
+    //    clickWithText("Tamam");
+        clickWithText("TAMAM");
         clickWithText("API Demos");
         clickWithText("Accessibility");
 
